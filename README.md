@@ -11,7 +11,8 @@ kilometers traveled and height gained.
 The general layout and how the task will performed
 * Build core algorithm in Python using different a variety of libraries to accomplish the task
 * Build backend code using Django
-* Build frontend code using React (**not decided which language**)
+* Build frontend code using HTML and CSS
+
 ### Python code base for the core algorithm
 
 * Parse .gpx files
