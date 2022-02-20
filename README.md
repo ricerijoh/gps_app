@@ -1,4 +1,5 @@
 # Description of GPS app (name is not decides)
+
 This gps app aims to combine serveral different gpx files and combining all the
 waypoints that is created into a single track. From this will the total
 kilometers traveled be calculated together with height gain. But the special
@@ -6,8 +7,13 @@ thing about this is that only unique segments will be counted towrads to total
 kilometers traveled and height gained.
 
 ## How it will be done (continious and changable)
+
 The general layout and how the task will performed
-### Python code base
+* Build core algorithm in Python using different a variety of libraries to accomplish the task
+* Build backend code using Django
+* Build frontend code using React (**not decided which language**)
+### Python code base for the core algorithm
+
 * Parse .gpx files
 * Use Ramer-Douglas-Peucker algorithm to deduce the number of **waypoints** for
 each .gpx file
