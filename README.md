@@ -9,6 +9,19 @@ kilometers traveled and height gained.
 The general layout and how the task will performed
 ### Python code base
 * Parse .gpx files
-* **mapmatch** tracks to roads with [link]https://leuvenmapmatching.readthedocs.io
+* Use Ramer-Douglas-Peucker algorithm to deduce the number of **waypoints** for
+each .gpx file
+    * This is done to make the code more effictive since we will work with 
+    smaller datasets 
+* **mapmatch** tracks to roads with https://leuvenmapmatching.readthedocs.io
     * Here I think its better to mapmatch every each .gpx individually and based 
     on the updated track it should be easier to distigush unique tracks
+* Combine all maptracked tracks and distingush the unique tracks
+    * This will be the core alogorithm and the whole idea for this application
+* Use some kind of filter for height gain since it ususally can give inaccurate
+height gains
+    * Here I have to test different filters, a Kalman filter would be optimal to
+    use to smooth the data. But this can take a lot of processing power.
+    but to convolve the data with an mean kernel can be a good approximation.
+    will compare different types of filters to see which gives the best result
+    with least amount of processing.
