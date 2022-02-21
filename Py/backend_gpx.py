@@ -5,7 +5,15 @@ Author: Richard Johansson
 """
 # Imports
 import gpxpy
+import numpy as np
+"""
+Is a Class the way to go? a lot of functions to do various
+things with multiple imported gpx files will be done and 
+to work with objects will most likey be the way to go.
 
+Will also build a Django integration with the front end 
+and it could be a class of its own.
+"""
 #-------------- Functions --------------#
 def get_lat_lon_ele(path):
     # Open gpx file
