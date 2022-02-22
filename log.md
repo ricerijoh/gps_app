@@ -15,4 +15,4 @@ body {
 Started to develop the backend with a function that extracts the latitude, longitude and elevation from the gpx file. Next step is to utilize the Ramer-Douglas-Peucker algorithm to deduce the number of points needed to describe the route.
 
 ## 220221
-Looked into how to calculate the distance. Tried using geopy.distance.distance method. Seems slow and inaccurate? will look into haversine formula to calculate the distances. Since it is an math formula and using numpy I assume it will be faster. Will use the lonlat from ´get_lat_long_ele()´ and haversine to calculate the distance.
+Looked into how to calculate the distance. Tried using geopy.distance.distance method. Seems slow and inaccurate? will look into haversine formula to calculate the distances. Since it is an math formula and using numpy I assume it will be faster. Will use the lonlat from `get_lat_long_ele()` and haversine to calculate the distance.
