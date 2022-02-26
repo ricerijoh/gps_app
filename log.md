@@ -18,4 +18,6 @@ Started to develop the backend with a function that extracts the latitude, longi
 Looked into how to calculate the distance. Tried using geopy.distance.distance method. Seems slow and inaccurate? will look into haversine formula to calculate the distances. Since it is an math formula and using numpy I assume it will be faster. Will use the lonlat from `loc()` and haversine to calculate the distance.
 
 ## 220224
-Updated README.md about how to integrate `backend_gpx.py` in the `HTML`. Think the Flask library might be good enough for this since the site only will collect `.gpx`files and use the functions in `backend_gpx.py` to apply the necessary algorithms to the data. Have also been thinking to use a database to store the data that is being put in by the user since the user might add quite many files
+Updated `README.md` about how to integrate `backend_gpx.py` in the `HTML`. Think the Flask library might be good enough for this since the site only will collect `.gpx`files and use the functions in `backend_gpx.py` to apply the necessary algorithms to the data. Have also been thinking to use a database to store the data that is being put in by the user since the user might add quite many files and a good practice on working with databases and SQL
+## 220226
+Added ideas into `README.md` about working with databases and also updated `todo.md` on how to design the front end

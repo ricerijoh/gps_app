@@ -36,4 +36,5 @@ height gains
     with least amount of processing.
 ## Python Flask script for routing and call functions from Python code base
 ## Store added gpx data in database?
+My idea here is that when the user adds files that they want to add to their route will the files be stored into a database using SQL. Think this is a good way to gather all the data from the user. My idea idea is to store the name, lon, lat and ele into it and then extract all of it to the backend when the user is done adding files. I think it can be a good way to have the data sorted and a good pratice to work with databases and SQL. When the actual alogorithm has done its job is the database flushed.
 ## HTML script
