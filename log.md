@@ -2,4 +2,22 @@
 Here will the process be documented with the creation of the application
 
 ## 220220
-Looked into how to design a webapplication. Decided to go with HTML and CSS to create the website. Looked into the basics of HTML and CSS and uploaded test scripts to GitHub. both HTML and CSS seem realtively intuitive.
+
+* Looked into how to design a webapplication. Decided to go with HTML and CSS to create the website. Looked into the basics of HTML and CSS and uploaded test scripts to GitHub. both HTML and CSS seem realtively intuitive. Setup git and cloned repo to my mac. Seem to work fine. 
+* Fixed margin in .css for background using:
+
+```css
+body {
+    margin: 0;
+}
+```
+## 220221
+Started to develop the backend with a function that extracts the latitude, longitude and elevation from the gpx file. Next step is to utilize the Ramer-Douglas-Peucker algorithm to deduce the number of points needed to describe the route.
+
+## 220221
+Looked into how to calculate the distance. Tried using geopy.distance.distance method. Seems slow and inaccurate? will look into haversine formula to calculate the distances. Since it is an math formula and using numpy I assume it will be faster. Will use the lonlat from `loc()` and haversine to calculate the distance.
+
+## 220224
+Updated `README.md` about how to integrate `backend_gpx.py` in the `HTML`. Think the Flask library might be good enough for this since the site only will collect `.gpx`files and use the functions in `backend_gpx.py` to apply the necessary algorithms to the data. Have also been thinking to use a database to store the data that is being put in by the user since the user might add quite many files and a good practice on working with databases and SQL
+## 220226
+Added ideas into `README.md` about working with databases and also updated `todo.md` on how to design the front end on further reading I think the best way to deal with the files is to use methods from `Flask`to upload the complete files onto a server of some kind. I was thinking that my stationary computer in Stockholm could become a server. This computer can act as a storage for the files to be worked on by the back end

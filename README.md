@@ -1,4 +1,4 @@
-# Description of GPS app (name is not decides)
+# Description of GPS app (name is not decided)
 
 This gps app aims to combine serveral different gpx files and combining all the
 waypoints that is created into a single track. From this will the total
@@ -10,13 +10,15 @@ kilometers traveled and height gained.
 
 The general layout and how the task will performed
 * Build core algorithm in Python using different a variety of libraries to accomplish the task
-* Build backend code using Django
+* Build backend front end integration using Flask or Django
+    * Here I could go by using an Python script with all the functions needed to parse, and manipulate data to our liking. Then have for example a Python Flask script than integrates with the HTML. Maybe set up some kind of database to store the input data from the user? 
+        * CREATE FLOWCHART FOR THIS
 * Build frontend code using HTML and CSS
 
-### Python code base for the core algorithm
+## Python code base for the core algorithm
 
 * Parse .gpx files
-* Use Ramer-Douglas-Peucker algorithm to deduce the number of **waypoints** for
+* Use Ramer-Douglas-Peucker algorithm to deduce the number of **points** for
 each .gpx file
     * This is done to make the code more effictive since we will work with 
     smaller datasets 
@@ -32,3 +34,6 @@ height gains
     but to convolve the data with an mean kernel can be a good approximation.
     will compare different types of filters to see which gives the best result
     with least amount of processing.
+## Python Flask script for routing and call functions from Python code base
+The API of choice will be `Flask` as it seems to be easy straightforward and seem to have all he necessary functionality that I need to store files on, for example a server. 
+## HTML script
