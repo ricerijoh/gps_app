@@ -24,7 +24,7 @@ each .gpx file
     smaller datasets 
 * **mapmatch** tracks to roads with https://leuvenmapmatching.readthedocs.io
     * Here I think its better to mapmatch every each .gpx individually and based 
-    on the updated track it should be easier to distigush unique tracks
+    on the updated track it should be easier to distigush unique track. Another way would be to concatinate all of the coordinates and then run the RDP on the concatinated coordinates. This will make it a single track and remove uneccessary points.
 * Combine all maptracked tracks and distingush the unique tracks
     * This will be the core alogorithm and the whole idea for this application
 * Use some kind of filter for height gain since it ususally can give inaccurate

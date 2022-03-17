@@ -6,8 +6,11 @@ Author: Richard Johansson
 # Imports
 import gpxpy
 import numpy as np
+from leuvenmapmatching.util.gpx import gpx_to_path
 import matplotlib.pyplot as plt
+import pandas as pd
 from geopy import distance 
+from rdp import rdp
 """
 The Gps class contains all of the methods to handle the gpx data manipulation
 all the way from parsing the gpx file to visualize the maptacked and total
@@ -15,35 +18,47 @@ distance of the track in e.g OpenStreetView
 """
 #-------------- Classes --------------#
 # Gps class
-__GPS__ = []
 class Gps:
-    def __init__(self, file):
-       self.file = file 
+    def __init__(self, files):
+       self.files = files 
+       self.coords = pd.DataFrame()
+       self.rdp = pd.DataFrame()
+
+       # RDP settings:
+       self.epsilon = 5e-6
+       self.algo = "iter"
 
     def __repr__(self):
        return np.array(self) 
 
-    def parse(self):
-        # Open gpx file
-        gpx_file = open(self.file, mode='rt', encoding ='utf-8')
-        # Parse gpx file 
-        self.gpx = gpxpy.parse(gpx_file)
-        return self.gpx 
+    def get_lonlat(self):
+        tracks = [gpx_to_path(idx) for idx in self.files]
+        lat = list()
+        lon = list()
 
-    def loc(self):
-        gpx = self.parse()
-        # Loop to collect lon, lat and ele
-        loc = []
-        for track in gpx.tracks:
-            for segment in track.segments:
-                for point in segment.points: 
-                    loc.append([point.latitude,
-                                point.longitude])
-        return np.array(loc)
-    
-    def rdp(self):
+        for i in range(len(tracks)):
+            lat.extend([tracks[i][j][0] for j in range(len(tracks[i]))])
+            lon.extend([tracks[i][j][1] for j in range(len(tracks[i]))])
+
+        self.coords["lat"] = lat
+        self.coords["lon"] = lon 
+
+    def rdp_gps(self):
         """
         Applying the Ramer-Douglas-Peucker algoritm. This is done by calling loc()
         and return the updated points, have to look how to do this in a profesional way
         """
-        loc = self.loc()
+        temp = np.array(rdp(self.coords, epsilon = self.epsilon, algo = self.algo))
+        self.rdp = pd.DataFrame(data = {'lat': temp[:,0], 'lon': temp[:,1]})
+
+files = ["data/gps1.gpx", "data/gps2.gpx"]
+data = Gps(files)
+data.get_lonlat()
+data.rdp_gps()
+
+
+plt.figure()
+plt.plot(data.coords.lat, data.coords.lon, "r.", label = "Concatinated gps points from two files")
+plt.plot(data.rdp.lat, data.rdp.lon, "b.", label = "Ponts reduced with Ramer-Douglas-Peucker algorithm")
+plt.legend(loc = "best", fontsize = 8)
+plt.show()
