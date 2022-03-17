@@ -51,11 +51,11 @@ class Gps:
         temp = np.array(rdp(self.coords, epsilon = self.epsilon, algo = self.algo))
         self.rdp = pd.DataFrame(data = {'lat': temp[:,0], 'lon': temp[:,1]})
 
+# Testing the class
 files = ["data/gps1.gpx", "data/gps2.gpx"]
 data = Gps(files)
 data.get_lonlat()
 data.rdp_gps()
-
 
 plt.figure()
 plt.plot(data.coords.lat, data.coords.lon, "r.", label = "Concatinated gps points from two files")
