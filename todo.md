@@ -8,6 +8,11 @@
 * maptrack the points to roads etc.
 * come up with a fast and accurate way to calculate distance
 * develop the algorithm that only uses the unique track and get rid of repeated tracks.
+* try to concatinate coordinates and then run the rdp, this should solve the issue with duplicate points.
+* try to concatinate coordinates and then run the rdp, this should solve the issue with duplicate points.
+
+# Database
+
 
 # Front end
 ## How I want it designed
